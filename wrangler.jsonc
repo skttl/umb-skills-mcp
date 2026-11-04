@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "umb-skills-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-04",
+  "workers_dev": true,
+  "routes": [{ "pattern": "umb-skills.skttl.dev", "custom_domain": true }],
+  "assets": {
+    "directory": ".generated/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+  },
+  "ratelimits": [
+    {
+      "name": "RATE_LIMITER",
+      "namespace_id": "1847319201",
+      "simple": { "limit": 120, "period": 60 },
+    },
+  ],
+  "observability": { "enabled": true },
+}

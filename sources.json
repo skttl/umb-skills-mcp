@@ -1,0 +1,23 @@
+[
+  {
+    "id": "backoffice-18",
+    "repository": "umbraco/Umbraco-CMS-Backoffice-Skills",
+    "ref": "main",
+    "major": 18,
+    "versionFile": "plugins/umbraco-backoffice-skills/.claude-plugin/plugin.json"
+  },
+  {
+    "id": "backoffice-17",
+    "repository": "umbraco/Umbraco-CMS-Backoffice-Skills",
+    "ref": "v17/main",
+    "major": 17,
+    "versionFile": "plugins/umbraco-backoffice-skills/.claude-plugin/plugin.json"
+  },
+  {
+    "id": "implementation-17",
+    "repository": "umbraco/Umbraco-CMS-Implementation-Skills",
+    "ref": "main",
+    "major": 17,
+    "versionFile": "Directory.Packages.props"
+  }
+]

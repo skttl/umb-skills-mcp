@@ -1,0 +1,8 @@
+node_modules/
+.upstream/
+.generated/
+.wrangler/
+.npm-cache/
+.dev.vars
+.env
+dist/
