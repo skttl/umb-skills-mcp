@@ -75,16 +75,7 @@ npm run dev
 
 ## Cloudflare and GitHub Actions
 
-Dansk trinvis vejledning til første deployment: [deployment-da.md](docs/deployment-da.md).
-
 The Worker uses static assets and a rate-limit binding. No database, KV, R2 or Durable Object is required. [`wrangler.jsonc`](wrangler.jsonc) binds `umb-skills.skttl.dev` as a custom domain and also enables the account's `workers.dev` address. The `skttl.dev` zone must be active in the selected account, with no conflicting DNS record for the chosen subdomain.
-
-Create these **repository secrets** in [GitHub Actions settings](https://github.com/skttl/umb-skills-mcp/settings/secrets/actions):
-
-- `CLOUDFLARE_ACCOUNT_ID`: the account containing the `skttl.dev` zone.
-- `CLOUDFLARE_API_TOKEN`: a scoped Cloudflare API token permitting Worker deployment and custom-domain setup. Start from Cloudflare's **Edit Cloudflare Workers** template, restrict it to the selected account and `skttl.dev` zone, and include the permissions required for Worker scripts, assets, routes and zone lookup.
-
-Never commit credentials or paste tokens into an issue. For local deployment, use `npx wrangler login` and `npm run deploy`.
 
 The workflow runs tests, actionlint, source sync, typechecking, a dry-run build and a local runtime smoke test. Successful runs on main deploy when both secrets exist. Pull requests never deploy. Missing credentials skip deployment with an explanation in the run summary. A daily schedule and manual dispatch refresh upstream sources without requiring a source-code commit. Production is smoke-tested after deployment; a failed production smoke test reports failure but does not automatically roll back.
 
