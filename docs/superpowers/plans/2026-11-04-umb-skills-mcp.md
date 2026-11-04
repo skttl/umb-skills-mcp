@@ -23,7 +23,7 @@
 - [x] Catalog and source ingestion: tests first for frontmatter, tracked files and safe references; implement scripts/sync.ts and source manifest; run real sync.
 - [x] Discovery and retrieval: tests first for ranking, versions and file boundaries; implement src/catalog.ts and src/index.ts using SDK transport.
 - [x] Delivery: companion skill, README, Wrangler domain/assets config, CI/deploy workflow with daily refresh and scoped secrets; lint workflow and smoke-test built Worker.
-- [ ] Review complete diff, commit and push initial main to user's empty repository; verify GitHub CI. Deploy if credentials are available; otherwise document exact missing setup.
+- [x] Review complete diff, commit and push initial main to user's empty repository; verify GitHub CI. Deployment deferred by user; exact setup is documented.
 
 ## Verification and rulings
 - 10 unit/integration tests pass; TypeScript and Wrangler dry-run pass; actionlint 1.7.7 passes.
@@ -31,3 +31,4 @@
 - Read-only final review found a potential HTML redirect issue; the exact upstream HTML file was added to the runtime smoke and passes without a change to HTML handling.
 - Ruling: implementation catalog is exposed only for 17, matching its pinned reference instance; do not infer compatibility for 18 from a subset of descriptions saying 17+.
 - User will add Cloudflare secrets later. Do not deploy locally; retain credentials-gated workflow and provide docs/deployment-da.md.
+- Initial implementation committed as 8be7c14 and pushed to main. GitHub Actions run 41809215797 passed on Ubuntu, including sync, typecheck, build and real Worker smoke. Production deployment was skipped because secrets are not configured.
